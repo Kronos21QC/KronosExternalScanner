@@ -36,6 +36,7 @@
             this.buttonSelect = new MetroFramework.Controls.MetroButton();
             this.listBoxResults = new MetroFramework.Controls.MetroListView();
             this.comboBoxProcesses = new MetroFramework.Controls.MetroComboBox();
+            this.buttonExportJSON = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // labelModuleInfo
@@ -167,11 +168,26 @@
             this.comboBoxProcesses.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.comboBoxProcesses.UseSelectable = true;
             // 
+            // buttonExportJSON
+            // 
+            this.buttonExportJSON.ForeColor = System.Drawing.Color.GreenYellow;
+            this.buttonExportJSON.Location = new System.Drawing.Point(279, 323);
+            this.buttonExportJSON.Name = "buttonExportJSON";
+            this.buttonExportJSON.Size = new System.Drawing.Size(98, 23);
+            this.buttonExportJSON.Style = MetroFramework.MetroColorStyle.Lime;
+            this.buttonExportJSON.TabIndex = 14;
+            this.buttonExportJSON.Text = "EXPORT";
+            this.buttonExportJSON.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.buttonExportJSON.UseCustomForeColor = true;
+            this.buttonExportJSON.UseSelectable = true;
+            this.buttonExportJSON.Click += new System.EventHandler(this.buttonExportJSON_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 369);
+            this.Controls.Add(this.buttonExportJSON);
             this.Controls.Add(this.comboBoxProcesses);
             this.Controls.Add(this.listBoxResults);
             this.Controls.Add(this.buttonSelect);
@@ -199,6 +215,7 @@
         private MetroFramework.Controls.MetroButton buttonSelect;
         private MetroFramework.Controls.MetroListView listBoxResults;
         private MetroFramework.Controls.MetroComboBox comboBoxProcesses;
+        private MetroFramework.Controls.MetroButton buttonExportJSON;
     }
 }
 

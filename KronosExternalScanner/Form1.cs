@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.InteropServices;
-using System.Text;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace KronosExternalScanner
@@ -13,7 +15,6 @@ namespace KronosExternalScanner
             InitializeComponent();
         }
 
-        // WinAPI imports
         [DllImport("kernel32.dll")]
         public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
@@ -28,34 +29,32 @@ namespace KronosExternalScanner
 
         private Process TargetProcess;
         private IntPtr TargetBaseAddress;
+        private readonly List<string> matchesFound = new List<string>();
 
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBoxProcesses.Items.Clear();
             foreach (var p in Process.GetProcesses())
-            {
                 comboBoxProcesses.Items.Add($"{p.ProcessName}:{p.Id}");
-            }
         }
 
         private void buttonSelect_Click(object sender, EventArgs e)
         {
-            if (comboBoxProcesses.SelectedItem != null)
-            {
-                string processInfo = comboBoxProcesses.SelectedItem.ToString();
-                string processName = processInfo.Split(':')[0];
-                int processId = int.Parse(processInfo.Split(':')[1]);
+            if (comboBoxProcesses.SelectedItem == null) return;
 
-                TargetProcess = Process.GetProcessById(processId);
-                TargetBaseAddress = TargetProcess.MainModule.BaseAddress;
+            string processName = comboBoxProcesses.SelectedItem.ToString().Split(':')[0];
+            int processId = int.Parse(comboBoxProcesses.SelectedItem.ToString().Split(':')[1]);
 
-                labelModuleInfo.Text = $"{TargetProcess.MainModule.ModuleName} loaded at 0x{TargetBaseAddress.ToInt64():X}";
-            }
+            TargetProcess = Process.GetProcessById(processId);
+            TargetBaseAddress = TargetProcess.MainModule.BaseAddress;
+
+            labelModuleInfo.Text = $"{TargetProcess.MainModule.ModuleName} loaded at 0x{TargetBaseAddress.ToInt64():X}";
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
             listBoxResults.Items.Clear();
+            matchesFound.Clear();
         }
 
         private byte?[] PatternToBytes(string pattern)
@@ -70,31 +69,33 @@ namespace KronosExternalScanner
                 else
                     patternBytes[i] = Convert.ToByte(patternParts[i], 16);
             }
-
             return patternBytes;
         }
 
         private void buttonScan_Click(object sender, EventArgs e)
         {
+            matchesFound.Clear();
+            listBoxResults.Items.Clear();
+
             if (TargetProcess == null || TargetProcess.HasExited)
             {
-                MessageBox.Show("Please select a valid target process first.");
+                MessageBox.Show("Select a valid target process first.");
                 return;
             }
 
             string patternTextbox = textBoxPattern.Text.Trim();
             if (string.IsNullOrEmpty(patternTextbox))
             {
-                MessageBox.Show("Please input a valid pattern first.");
+                MessageBox.Show("Please input a valid pattern.");
                 return;
             }
 
             byte?[] pattern = PatternToBytes(patternTextbox);
-
             IntPtr hProcess = OpenProcess(PROCESS_VM_READ | PROCESS_QUERY_INFORMATION, false, TargetProcess.Id);
+
             if (hProcess == IntPtr.Zero)
             {
-                MessageBox.Show("Failed to open target process!");
+                MessageBox.Show("Failed to open process.");
                 return;
             }
 
@@ -102,18 +103,15 @@ namespace KronosExternalScanner
             int bytesRead;
 
             bool result = ReadProcessMemory(hProcess, TargetBaseAddress, moduleBytes, moduleBytes.Length, out bytesRead);
+            CloseHandle(hProcess);
 
-            if (!result || bytesRead == 0)
+            if (!result || bytesRead <= 0)
             {
-                MessageBox.Show("Failed to read module memory!");
-                CloseHandle(hProcess);
+                MessageBox.Show("Failed to read process memory.");
                 return;
             }
 
-            CloseHandle(hProcess);
-
-            int matchCount = 0;
-            for (int idx = 0; idx < moduleBytes.Length - pattern.Length; idx++)
+            for (int idx = 0; idx <= moduleBytes.Length - pattern.Length; idx++)
             {
                 bool found = true;
                 for (int p = 0; p < pattern.Length; p++)
@@ -126,17 +124,48 @@ namespace KronosExternalScanner
                 }
                 if (found)
                 {
-                    matchCount++;
-                    listBoxResults.Items.Add($"Match {matchCount}: 0x{(TargetBaseAddress.ToInt64() + idx):X}");
+                    string match = $"0x{(TargetBaseAddress.ToInt64() + idx):X}";
+                    matchesFound.Add(match);
+                    listBoxResults.Items.Add(match);
                 }
             }
 
-            if (matchCount == 0)
+            if (matchesFound.Count == 0)
+                listBoxResults.Items.Add("No matches found!");
+        }
+
+        private void buttonExportJSON_Click_1(object sender, EventArgs e)
+        {
+            if (TargetProcess == null || matchesFound.Count == 0)
             {
-                listBoxResults.Items.Add("No match found!");
+                MessageBox.Show("No scan results to export. Perform a scan first.");
+                return;
+            }
+
+            SaveFileDialog sfd = new SaveFileDialog
+            {
+                Filter = "JSON files (*.json)|*.json",
+                FileName = $"ScanResults_{TargetProcess.ProcessName}.json"
+            };
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                var exportData = new
+                {
+                    ProcessName = TargetProcess.ProcessName,
+                    ProcessId = TargetProcess.Id,
+                    SignaturePattern = textBoxPattern.Text.Trim(),
+                    ModuleName = TargetProcess.MainModule.ModuleName,
+                    ModuleBaseAddress = $"0x{TargetBaseAddress.ToInt64():X}",
+                    Matches = matchesFound
+                };
+
+                var jsonOptions = new JsonSerializerOptions() { WriteIndented = true };
+                string jsonString = JsonSerializer.Serialize(exportData, jsonOptions);
+                File.WriteAllText(sfd.FileName, jsonString);
+                MessageBox.Show("Results successfully exported to JSON");
             }
         }
 
-        
     }
 }
