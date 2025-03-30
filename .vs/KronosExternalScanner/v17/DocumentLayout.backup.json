@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Gabyy\\Desktop\\Hacking\\KronosExternalScanner\\KronosExternalScanner\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1DB67949-29A0-4A8C-80F7-F65727EE1F62}|KronosExternalScanner\\KronosExternalScanner.csproj|c:\\users\\gabyy\\desktop\\hacking\\kronosexternalscanner\\kronosexternalscanner\\kronosexternalscanner\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1DB67949-29A0-4A8C-80F7-F65727EE1F62}|KronosExternalScanner\\KronosExternalScanner.csproj|solutionrelative:kronosexternalscanner\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DB67949-29A0-4A8C-80F7-F65727EE1F62}|KronosExternalScanner\\KronosExternalScanner.csproj|C:\\Users\\Gabyy\\Desktop\\Hacking\\KronosExternalScanner\\KronosExternalScanner\\kronosexternalscanner\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DB67949-29A0-4A8C-80F7-F65727EE1F62}|KronosExternalScanner\\KronosExternalScanner.csproj|solutionrelative:kronosexternalscanner\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Gabyy\\Desktop\\Hacking\\KronosExternalScanner\\KronosExternalScanner\\KronosExternalScanner\\Form1.cs",
+              "RelativeDocumentMoniker": "KronosExternalScanner\\Form1.cs",
+              "ToolTip": "C:\\Users\\Gabyy\\Desktop\\Hacking\\KronosExternalScanner\\KronosExternalScanner\\KronosExternalScanner\\Form1.cs",
+              "RelativeToolTip": "KronosExternalScanner\\Form1.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAwCgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T03:44:57.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Gabyy\\Desktop\\Hacking\\KronosExternalScanner\\KronosExternalScanner\\KronosExternalScanner\\Form1.cs",
+              "RelativeDocumentMoniker": "KronosExternalScanner\\Form1.cs",
+              "ToolTip": "C:\\Users\\Gabyy\\Desktop\\Hacking\\KronosExternalScanner\\KronosExternalScanner\\KronosExternalScanner\\Form1.cs [Design]",
+              "RelativeToolTip": "KronosExternalScanner\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T03:39:12.158Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

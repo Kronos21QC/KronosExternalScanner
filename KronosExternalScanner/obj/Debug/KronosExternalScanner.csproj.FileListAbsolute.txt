@@ -1,0 +1,10 @@
+C:\Users\Gabyy\Desktop\Hacking\KronosExternalScanner\KronosExternalScanner\KronosExternalScanner\bin\Debug\KronosExternalScanner.exe.config
+C:\Users\Gabyy\Desktop\Hacking\KronosExternalScanner\KronosExternalScanner\KronosExternalScanner\bin\Debug\KronosExternalScanner.exe
+C:\Users\Gabyy\Desktop\Hacking\KronosExternalScanner\KronosExternalScanner\KronosExternalScanner\bin\Debug\KronosExternalScanner.pdb
+C:\Users\Gabyy\Desktop\Hacking\KronosExternalScanner\KronosExternalScanner\KronosExternalScanner\obj\Debug\KronosExternalScanner.csproj.AssemblyReference.cache
+C:\Users\Gabyy\Desktop\Hacking\KronosExternalScanner\KronosExternalScanner\KronosExternalScanner\obj\Debug\KronosExternalScanner.Form1.resources
+C:\Users\Gabyy\Desktop\Hacking\KronosExternalScanner\KronosExternalScanner\KronosExternalScanner\obj\Debug\KronosExternalScanner.Properties.Resources.resources
+C:\Users\Gabyy\Desktop\Hacking\KronosExternalScanner\KronosExternalScanner\KronosExternalScanner\obj\Debug\KronosExternalScanner.csproj.GenerateResource.cache
+C:\Users\Gabyy\Desktop\Hacking\KronosExternalScanner\KronosExternalScanner\KronosExternalScanner\obj\Debug\KronosExternalScanner.csproj.CoreCompileInputs.cache
+C:\Users\Gabyy\Desktop\Hacking\KronosExternalScanner\KronosExternalScanner\KronosExternalScanner\obj\Debug\KronosExternalScanner.exe
+C:\Users\Gabyy\Desktop\Hacking\KronosExternalScanner\KronosExternalScanner\KronosExternalScanner\obj\Debug\KronosExternalScanner.pdb
