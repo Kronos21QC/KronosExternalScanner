@@ -1,1 +1,2 @@
-![KronosExternalScanner](https://github.com/user-attachments/assets/c35e7654-ac21-43b7-91da-9433747b6bd1)
+
+![KronosExternalScanner](https://github.com/user-attachments/assets/bd1ca099-de95-45e7-8f9a-33e7aaca57c9)
