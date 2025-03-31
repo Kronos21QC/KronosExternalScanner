@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.labelModuleInfo = new System.Windows.Forms.Label();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.textBoxPattern = new MetroFramework.Controls.MetroTextBox();
             this.buttonScan = new MetroFramework.Controls.MetroButton();
             this.buttonClear = new MetroFramework.Controls.MetroButton();
@@ -37,29 +36,19 @@
             this.listBoxResults = new MetroFramework.Controls.MetroListView();
             this.comboBoxProcesses = new MetroFramework.Controls.MetroComboBox();
             this.buttonExportJSON = new MetroFramework.Controls.MetroButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelModuleInfo
             // 
             this.labelModuleInfo.AutoSize = true;
             this.labelModuleInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.labelModuleInfo.Location = new System.Drawing.Point(276, 225);
+            this.labelModuleInfo.Location = new System.Drawing.Point(252, 346);
             this.labelModuleInfo.Name = "labelModuleInfo";
             this.labelModuleInfo.Size = new System.Drawing.Size(101, 13);
             this.labelModuleInfo.TabIndex = 5;
             this.labelModuleInfo.Text = "No Process Chosen";
-            // 
-            // metroTile1
-            // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(23, 73);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(476, 62);
-            this.metroTile1.TabIndex = 7;
-            this.metroTile1.TileImage = global::KronosExternalScanner.Properties.Resources.KronosQC_Avatar;
-            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.UseTileImage = true;
             // 
             // textBoxPattern
             // 
@@ -97,11 +86,11 @@
             // 
             // buttonScan
             // 
-            this.buttonScan.ForeColor = System.Drawing.Color.GreenYellow;
+            this.buttonScan.ForeColor = System.Drawing.Color.Turquoise;
             this.buttonScan.Location = new System.Drawing.Point(23, 183);
             this.buttonScan.Name = "buttonScan";
             this.buttonScan.Size = new System.Drawing.Size(106, 23);
-            this.buttonScan.Style = MetroFramework.MetroColorStyle.Lime;
+            this.buttonScan.Style = MetroFramework.MetroColorStyle.Teal;
             this.buttonScan.TabIndex = 9;
             this.buttonScan.Text = "Start Scan";
             this.buttonScan.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -111,11 +100,11 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.ForeColor = System.Drawing.Color.GreenYellow;
+            this.buttonClear.ForeColor = System.Drawing.Color.Turquoise;
             this.buttonClear.Location = new System.Drawing.Point(135, 183);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(106, 23);
-            this.buttonClear.Style = MetroFramework.MetroColorStyle.Lime;
+            this.buttonClear.Style = MetroFramework.MetroColorStyle.Teal;
             this.buttonClear.TabIndex = 10;
             this.buttonClear.Text = "Clear Results";
             this.buttonClear.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -125,11 +114,11 @@
             // 
             // buttonSelect
             // 
-            this.buttonSelect.ForeColor = System.Drawing.Color.GreenYellow;
+            this.buttonSelect.ForeColor = System.Drawing.Color.Turquoise;
             this.buttonSelect.Location = new System.Drawing.Point(247, 183);
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Size = new System.Drawing.Size(106, 23);
-            this.buttonSelect.Style = MetroFramework.MetroColorStyle.Lime;
+            this.buttonSelect.Style = MetroFramework.MetroColorStyle.Teal;
             this.buttonSelect.TabIndex = 11;
             this.buttonSelect.Text = "Select Process";
             this.buttonSelect.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -146,7 +135,7 @@
             this.listBoxResults.Location = new System.Drawing.Point(23, 225);
             this.listBoxResults.Name = "listBoxResults";
             this.listBoxResults.OwnerDraw = true;
-            this.listBoxResults.Size = new System.Drawing.Size(247, 121);
+            this.listBoxResults.Size = new System.Drawing.Size(479, 109);
             this.listBoxResults.Style = MetroFramework.MetroColorStyle.Lime;
             this.listBoxResults.TabIndex = 12;
             this.listBoxResults.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -170,8 +159,8 @@
             // 
             // buttonExportJSON
             // 
-            this.buttonExportJSON.ForeColor = System.Drawing.Color.GreenYellow;
-            this.buttonExportJSON.Location = new System.Drawing.Point(279, 323);
+            this.buttonExportJSON.ForeColor = System.Drawing.Color.Turquoise;
+            this.buttonExportJSON.Location = new System.Drawing.Point(23, 340);
             this.buttonExportJSON.Name = "buttonExportJSON";
             this.buttonExportJSON.Size = new System.Drawing.Size(98, 23);
             this.buttonExportJSON.Style = MetroFramework.MetroColorStyle.Lime;
@@ -182,11 +171,22 @@
             this.buttonExportJSON.UseSelectable = true;
             this.buttonExportJSON.Click += new System.EventHandler(this.buttonExportJSON_Click_1);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::KronosExternalScanner.Properties.Resources.LogoMakerCa_1733007418237;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 53);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(479, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 369);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonExportJSON);
             this.Controls.Add(this.comboBoxProcesses);
             this.Controls.Add(this.listBoxResults);
@@ -194,13 +194,13 @@
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonScan);
             this.Controls.Add(this.textBoxPattern);
-            this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.labelModuleInfo);
             this.Name = "Form1";
-            this.Style = MetroFramework.MetroColorStyle.Lime;
+            this.Style = MetroFramework.MetroColorStyle.Teal;
             this.Text = "KronosQC - External Pattern Scanner";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,7 +208,6 @@
 
         #endregion
         private System.Windows.Forms.Label labelModuleInfo;
-        private MetroFramework.Controls.MetroTile metroTile1;
         private MetroFramework.Controls.MetroTextBox textBoxPattern;
         private MetroFramework.Controls.MetroButton buttonScan;
         private MetroFramework.Controls.MetroButton buttonClear;
@@ -216,6 +215,7 @@
         private MetroFramework.Controls.MetroListView listBoxResults;
         private MetroFramework.Controls.MetroComboBox comboBoxProcesses;
         private MetroFramework.Controls.MetroButton buttonExportJSON;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
